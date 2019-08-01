@@ -1,7 +1,7 @@
 package cn.layanan.exception.example.core.validate;
 
 import cn.layanan.exception.example.core.enums.ErrorCodeEnum;
-import cn.layanan.exception.example.core.exception.RequestException;
+import cn.layanan.exception.example.core.exception.Exceptions;
 import cn.layanan.exception.example.core.util.EmptyUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -46,7 +46,7 @@ public class ParamValidatorAop {
                 Validator validator = (Validator) methodParam;
                 String result = validator.validate();
                 if (EmptyUtil.isNotEmpty(result)) {
-                    throw new RequestException(ErrorCodeEnum.PARAM_ERROR, result);
+                    throw Exceptions.request(ErrorCodeEnum.PARAM_ERROR, result);
                 }
             }
         }

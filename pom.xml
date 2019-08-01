@@ -42,7 +42,6 @@
 			<artifactId>fastjson</artifactId>
 			<version>${fastjson}</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>

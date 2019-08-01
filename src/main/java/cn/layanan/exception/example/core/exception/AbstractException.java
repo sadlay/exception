@@ -25,9 +25,9 @@ abstract class AbstractException extends RuntimeException implements EnumHandle 
     }
 
     public AbstractException(EnumHandle enumHandle, String extraMessage) {
-        super(enumHandle.getMessage() + extraMessage);
+        super(extraMessage);
         this.code = enumHandle.getCode();
-        this.errorMessage = enumHandle.getMessage() + extraMessage;
+        this.errorMessage = extraMessage;
     }
 
 
