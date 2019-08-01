@@ -8,10 +8,10 @@
 		<version>2.1.0.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>cn.layanan.exception</groupId>
-	<artifactId>example</artifactId>
+	<groupId>cn.layanan</groupId>
+	<artifactId>exception</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>example</name>
+	<name>exception</name>
 	<description>A simple demo for exception handle</description>
 
 	<properties>
