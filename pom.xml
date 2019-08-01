@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<fastjson>1.2.44</fastjson>
 	</properties>
 
 	<dependencies>
@@ -39,7 +40,7 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.2.44</version>
+			<version>${fastjson}</version>
 		</dependency>
 
 	</dependencies>
