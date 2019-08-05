@@ -75,5 +75,8 @@ public class Result {
     public static Result error(EnumHandle enumHandle) {
         return new ErrorResult(enumHandle.getCode(), enumHandle.getMessage());
     }
+    public static Result error(EnumHandle enumHandle,String extraMsg) {
+        return new ErrorResult(enumHandle.getCode(), extraMsg);
+    }
 
 }

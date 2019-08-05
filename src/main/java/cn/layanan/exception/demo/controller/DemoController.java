@@ -1,14 +1,17 @@
 package cn.layanan.exception.demo.controller;
 
 import cn.layanan.exception.core.result.Result;
-import cn.layanan.exception.core.validate.ParamValidator;
+import cn.layanan.exception.core.validate.Default;
+import cn.layanan.exception.core.validate.NotEqual;
 import cn.layanan.exception.demo.param.VipParam;
 import cn.layanan.exception.demo.service.VipService;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * 控制器demo
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2019/7/31 15:40
  */
 @RestController
+@Validated
 public class DemoController {
 
     @Autowired
@@ -51,7 +55,6 @@ public class DemoController {
         return Result.success(result);
     }
 
-
     /**
      * 实体接参数
      * 添加校验注解@ParamValidator可以对 VipParam进行自动校验(需要实现Validator接口)，
@@ -61,8 +64,13 @@ public class DemoController {
      * @Date 2019/7/31 16:34
      */
     @PostMapping("/demo2")
-    @ParamValidator
-    public Result demo2(@RequestBody VipParam vipParam) {
+    //@ParamValidator
+    public Result demo2(@RequestBody @Validated(Default.class) VipParam vipParam) {
         return Result.success(vipService.doVipService(vipParam));
+    }
+
+    @GetMapping("/demo3")
+    public Result demo3(@NotEmpty @Email @Length(min = 10, max = 20) @NotEqual({"123456@email.com", "654321@email.com"}) String email) {
+        return Result.success(email);
     }
 }
