@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
@@ -72,5 +74,12 @@ public class DemoController {
     @GetMapping("/demo3")
     public Result demo3(@NotEmpty @Email @Length(min = 10, max = 20) @NotEqual({"123456@email.com", "654321@email.com"}) String email) {
         return Result.success(email);
+    }
+
+    @GetMapping("/demo4")
+    public Result demo4(HttpServletRequest request, HttpServletResponse response) {
+        VipParam vipParam=new VipParam();
+        vipParam.setChannle_code("code");
+        return Result.success(vipParam);
     }
 }
