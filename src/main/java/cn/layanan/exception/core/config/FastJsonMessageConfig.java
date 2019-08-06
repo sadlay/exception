@@ -3,6 +3,7 @@ package cn.layanan.exception.core.config;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +27,7 @@ public class FastJsonMessageConfig {
     //引入Fastjson解析json，不使用默认的jackson
     //必须在pom.xml引入fastjson的jar包，并且版必须大于1.2.10
     @Bean
+    @ConditionalOnClass(FastJsonHttpMessageConverter.class)
     public HttpMessageConverters fastJsonHttpMessageConverters() {
         //1、定义一个convert转换消息的对象
         FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
