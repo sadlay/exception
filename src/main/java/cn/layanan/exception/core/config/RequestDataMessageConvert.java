@@ -22,11 +22,9 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * 请求数据统一转化为RequestData
- *
- * @author fengshuonan
- * @Date 2018/2/21 20:57
- * Copyright: 2018赛鼎科技-版权所有
+ * 请求参数封装
+ * @auther layanan
+ * @Date 2019/8/8 23:03
  */
 public class RequestDataMessageConvert extends AbstractGenericHttpMessageConverter<RequestData> {
     private static final Logger log = LoggerFactory.getLogger(RequestDataMessageConvert.class);

@@ -32,7 +32,7 @@ public class SpringMvcConfig extends WebMvcConfigurationSupport {
         super.addArgumentResolvers(argumentResolvers);
         argumentResolvers.add(jwtTokenArgumentResolver);
         argumentResolvers.add(new PropertyNamingStrategyArgumentResolver(true));
-        argumentResolvers.add(new RequestDataTypeMethodProcessor())
+        argumentResolvers.add(new RequestDataTypeMethodProcessor());
     }
 
     @Override

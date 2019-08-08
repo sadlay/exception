@@ -8,11 +8,9 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * 响应结果封装
- *
- * @author fengshuonan
- * @Date 2018/2/11 23:04
- * Copyright: 2018赛鼎科技-版权所有
+ * 请求参数封装
+ * @auther layanan
+ * @Date 2019/8/8 23:03
  */
 public class RequestData implements Serializable {
 
