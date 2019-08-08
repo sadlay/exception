@@ -1,19 +1,26 @@
 package cn.layanan.exception.demo.controller;
 
 import cn.layanan.exception.core.result.Result;
-import cn.layanan.exception.core.validate.Default;
 import cn.layanan.exception.core.validate.NotEqual;
 import cn.layanan.exception.demo.param.VipParam;
 import cn.layanan.exception.demo.service.VipService;
+import com.alibaba.fastjson.JSON;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.Map;
 
 /**
  * 控制器demo
@@ -67,8 +74,23 @@ public class DemoController {
      */
     @PostMapping("/demo2")
     //@ParamValidator
-    public Result demo2(@RequestBody @Validated(Default.class) VipParam vipParam) {
-        return Result.success(vipService.doVipService(vipParam));
+    public Result demo2(/*@RequestBody @Validated VipParam vipParam,*/ HttpServletRequest request) throws IOException {
+        //Map<String, String[]> parameterMap = request.getParameterMap();
+//        System.out.println(JSON.toJSONString(parameterMap));
+     /*    ServletInputStream inputStream = request.getInputStream();
+       InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);*/
+        BufferedReader bufferedReader = request.getReader();
+        StringBuilder sb=new StringBuilder();
+        while (bufferedReader.ready()) {
+            String line = bufferedReader.readLine();
+            System.out.println(line);
+            sb.append(line);
+        }
+        //JSONObject jsonObject = JSONObject.parseObject(sb.toString());
+        Object parse = JSON.parse(sb.toString());
+
+        return Result.success(parse);
     }
 
     @GetMapping("/demo3")

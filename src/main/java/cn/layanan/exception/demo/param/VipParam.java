@@ -15,13 +15,13 @@ import javax.validation.constraints.NotEmpty;
  */
 public class VipParam implements Validator {
 
-    @NotEmpty(message = "手机号不能为空", groups = Insert.class)
+    @NotEmpty(message = "手机号不能为空")
     private String phone;
 
     @NotEmpty(message = "编码不能为空")
     private String channle_code;
 
-    @NotEmpty(message = "支付时间不能为空", groups = Update.class)
+    @NotEmpty(message = "支付时间不能为空")
     private String pay_time;
 
     public VipParam() {
