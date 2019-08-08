@@ -1,5 +1,6 @@
 package cn.layanan.exception.demo.controller;
 
+import cn.layanan.exception.core.config.RequestData;
 import cn.layanan.exception.core.result.Result;
 import cn.layanan.exception.core.validate.NotEqual;
 import cn.layanan.exception.demo.param.VipParam;
@@ -103,5 +104,11 @@ public class DemoController {
         VipParam vipParam=new VipParam();
         vipParam.setChannle_code("code");
         return Result.success(vipParam);
+    }
+    @PostMapping("/demo5")
+    public Result demo5(RequestData requestData) {
+        VipParam vipParam=new VipParam();
+        vipParam.setChannle_code("code");
+        return Result.success(requestData.getIp());
     }
 }
