@@ -21,7 +21,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Map;
+import java.io.InputStreamReader;
 
 /**
  * 控制器demo
@@ -82,7 +82,7 @@ public class DemoController {
        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);*/
         BufferedReader bufferedReader = request.getReader();
-        StringBuilder sb=new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         while (bufferedReader.ready()) {
             String line = bufferedReader.readLine();
             System.out.println(line);
@@ -101,14 +101,34 @@ public class DemoController {
 
     @GetMapping("/demo4")
     public Result demo4(HttpServletRequest request, HttpServletResponse response) {
-        VipParam vipParam=new VipParam();
+        VipParam vipParam = new VipParam();
         vipParam.setChannle_code("code");
         return Result.success(vipParam);
     }
+
     @PostMapping("/demo5")
-    public Result demo5(RequestData requestData) {
-        VipParam vipParam=new VipParam();
+    public Result demo5(RequestData requestData, HttpServletRequest request) throws IOException {
+        VipParam vipParam = new VipParam();
         vipParam.setChannle_code("code");
-        return Result.success(requestData.getIp());
+
+        ServletInputStream inputStream = request.getInputStream();
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+//        BufferedReader bufferedReader = request.getReader();
+        StringBuilder sb = new StringBuilder();
+        while (bufferedReader.ready()) {
+            String line = bufferedReader.readLine();
+            System.out.println(line);
+            sb.append(line);
+        }
+/*        char[] charBuffer = new char[128];
+        int bytesRead = -1;
+        while ((bytesRead = bufferedReader.read(charBuffer)) > 0) {
+            sb.append(charBuffer, 0, bytesRead);
+        }*/
+        //JSONObject jsonObject = JSONObject.parseObject(sb.toString());
+        Object parse = JSON.parse(sb.toString());
+
+        return Result.success(requestData);
     }
 }
