@@ -18,7 +18,8 @@ import java.io.IOException;
  * @Modified By:IntelliJ IDEA
  */
 public class BodyReaderFilter extends HttpFilter {
-    private static Logger log= LoggerFactory.getLogger(BodyReaderFilter.class);
+    private static Logger log = LoggerFactory.getLogger(BodyReaderFilter.class);
+
     @Override
     protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
         log.info("包装bodyFilter");
