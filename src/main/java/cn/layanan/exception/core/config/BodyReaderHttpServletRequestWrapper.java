@@ -1,6 +1,5 @@
 package cn.layanan.exception.core.config;
 
-import org.springframework.mock.web.DelegatingServletInputStream;
 import org.springframework.util.StreamUtils;
 
 import javax.servlet.ReadListener;
@@ -34,7 +33,7 @@ public class BodyReaderHttpServletRequestWrapper extends HttpServletRequestWrapp
     @Override
     public ServletInputStream getInputStream() {
         final ByteArrayInputStream bais = new ByteArrayInputStream(body);
-        return new DelegatingServletInputStream(bais);
+        return new BodyReaderServletInputStream(bais);
     }
 
     @Override

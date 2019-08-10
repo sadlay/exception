@@ -11,7 +11,8 @@ public enum ErrorCodeEnum implements EnumHandle {
     PARAM_ERROR(-1001, "参数错误或不完整！"),
     RSA_DECRYPT_ERROR(-1002, "解密失败！"),
     SIGN_ERROR(-1003, "签名错误！"),
-    SIGN_EXPIRED(-1004, "签名过期！");
+    SIGN_EXPIRED(-1004, "签名过期！"),
+    EMAIL_ERROR(-1005,"邮箱异常");
 
     private Integer code;
     private String message;

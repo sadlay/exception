@@ -17,7 +17,7 @@ import java.util.List;
  * @Date: Created in 11:24 2019/8/7
  * @Modified By:IntelliJ IDEA
  */
-@Configuration
+//@Configuration
 public class SpringMvcConfig extends WebMvcConfigurationSupport {
     @Autowired
     private JwtTokenArgumentResolver jwtTokenArgumentResolver;

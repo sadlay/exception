@@ -1,11 +1,14 @@
 package cn.layanan.exception.demo.controller;
 
 import cn.layanan.exception.core.config.RequestData;
+import cn.layanan.exception.core.enums.ErrorCodeEnum;
+import cn.layanan.exception.core.exception.ServiceException;
 import cn.layanan.exception.core.result.Result;
 import cn.layanan.exception.core.validate.NotEqual;
 import cn.layanan.exception.demo.param.VipParam;
 import cn.layanan.exception.demo.service.VipService;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -96,8 +99,27 @@ public class DemoController {
 
     @GetMapping("/demo3")
     public Result demo3(@NotEmpty @Email @Length(min = 10, max = 20) @NotEqual({"123456@email.com", "654321@email.com"}) String email) {
+        if(!email.equals("123456@qq.com")){
+            throw new ServiceException(ErrorCodeEnum.EMAIL_ERROR,"邮箱等于123456@qq.com");
+        }
         return Result.success(email);
     }
+
+    @PostMapping("/vip")
+    public Result demo3(HttpServletRequest request) throws IOException {
+        ServletInputStream inputStream = request.getInputStream();
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader reader = new BufferedReader(inputStreamReader);
+        StringBuffer sb = new StringBuffer();
+        char[] charBuffer = new char[128];
+        int bytesRead = -1;
+        while ((bytesRead = reader.read(charBuffer)) > 0) {
+            sb.append(charBuffer, 0, bytesRead);
+        }
+        VipParam vipParam =JSONObject.parseObject(sb.toString(),VipParam.class);
+        return Result.success(vipParam);
+    }
+
 
     @GetMapping("/demo4")
     public Result demo4(HttpServletRequest request, HttpServletResponse response) {
