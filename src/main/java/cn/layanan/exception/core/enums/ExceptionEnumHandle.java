@@ -6,7 +6,7 @@ package cn.layanan.exception.core.enums;
  * @Author liyanan
  * @Date 2019/7/31 14:04
  */
-public interface EnumHandle {
+public interface ExceptionEnumHandle {
 
     /**
      * 获取状态码

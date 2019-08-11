@@ -1,6 +1,6 @@
 package cn.layanan.exception.demo.service.impl;
 
-import cn.layanan.exception.core.enums.ErrorCodeEnum;
+import cn.layanan.exception.core.enums.SecurityErrorEnum;
 import cn.layanan.exception.core.exception.RequestException;
 import cn.layanan.exception.demo.param.VipParam;
 import cn.layanan.exception.demo.service.VipService;
@@ -49,7 +49,7 @@ public class VipServiceImpl implements VipService {
             decryptData = new String(bytes);
         } catch (Exception e) {
             log.error("RSA解密错误", e);
-            throw new RequestException(ErrorCodeEnum.RSA_DECRYPT_ERROR);
+            throw new RequestException(SecurityErrorEnum.RSA_DECRYPT_ERROR);
         }
         return decryptData;
     }
@@ -60,7 +60,7 @@ public class VipServiceImpl implements VipService {
             data = JSONObject.parseObject(decryptData);
         } catch (Exception e) {
             log.error("格式转为错误", e);
-            throw new RequestException(ErrorCodeEnum.RSA_DECRYPT_ERROR);
+            throw new RequestException(SecurityErrorEnum.RSA_DECRYPT_ERROR);
         }
         return data;
     }
@@ -75,7 +75,7 @@ public class VipServiceImpl implements VipService {
             success = false;
         }
         if (!success) {
-            throw new RequestException(ErrorCodeEnum.SIGN_ERROR);
+            throw new RequestException(SecurityErrorEnum.SIGN_ERROR);
         }
     }
 

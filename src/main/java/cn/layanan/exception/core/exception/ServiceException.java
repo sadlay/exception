@@ -1,6 +1,6 @@
 package cn.layanan.exception.core.exception;
 
-import cn.layanan.exception.core.enums.EnumHandle;
+import cn.layanan.exception.core.enums.ExceptionEnumHandle;
 
 /**
  * 服务异常（通常为业务处理时无法进行时手动抛出）
@@ -10,12 +10,12 @@ import cn.layanan.exception.core.enums.EnumHandle;
  */
 public class ServiceException extends AbstractException {
 
-    public ServiceException(EnumHandle enumHandle) {
-        super(enumHandle);
+    public ServiceException(ExceptionEnumHandle exceptionEnumHandle) {
+        super(exceptionEnumHandle);
     }
 
-    public ServiceException(EnumHandle enumHandle, String extraMessage) {
-        super(enumHandle, extraMessage);
+    public ServiceException(ExceptionEnumHandle exceptionEnumHandle, String extraMessage) {
+        super(exceptionEnumHandle, extraMessage);
     }
 
     public ServiceException(Integer code, String errorMessage) {

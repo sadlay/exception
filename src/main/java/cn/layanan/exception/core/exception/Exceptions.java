@@ -1,6 +1,6 @@
 package cn.layanan.exception.core.exception;
 
-import cn.layanan.exception.core.enums.EnumHandle;
+import cn.layanan.exception.core.enums.ExceptionEnumHandle;
 
 /**
  * 异常工具类
@@ -14,35 +14,35 @@ public final class Exceptions {
         return new RequestException(code, msg);
     }
 
-    public static AbstractException request(EnumHandle enumHandle) {
-        return new RequestException(enumHandle);
+    public static AbstractException request(ExceptionEnumHandle exceptionEnumHandle) {
+        return new RequestException(exceptionEnumHandle);
     }
 
-    public static AbstractException request(EnumHandle enumHandle, String msg) {
-        return new RequestException(enumHandle, msg);
+    public static AbstractException request(ExceptionEnumHandle exceptionEnumHandle, String msg) {
+        return new RequestException(exceptionEnumHandle, msg);
     }
 
     public static AbstractException security(Integer code, String msg) {
         return new SecurityException(code, msg);
     }
 
-    public static AbstractException security(EnumHandle enumHandle) {
-        return new SecurityException(enumHandle);
+    public static AbstractException security(ExceptionEnumHandle exceptionEnumHandle) {
+        return new SecurityException(exceptionEnumHandle);
     }
 
-    public static AbstractException security(EnumHandle enumHandle, String msg) {
-        return new SecurityException(enumHandle, msg);
+    public static AbstractException security(ExceptionEnumHandle exceptionEnumHandle, String msg) {
+        return new SecurityException(exceptionEnumHandle, msg);
     }
 
     public static AbstractException service(Integer code, String msg) {
         return new ServiceException(code, msg);
     }
 
-    public static AbstractException service(EnumHandle enumHandle) {
-        return new ServiceException(enumHandle);
+    public static AbstractException service(ExceptionEnumHandle exceptionEnumHandle) {
+        return new ServiceException(exceptionEnumHandle);
     }
 
-    public static AbstractException service(EnumHandle enumHandle, String msg) {
-        return new ServiceException(enumHandle, msg);
+    public static AbstractException service(ExceptionEnumHandle exceptionEnumHandle, String msg) {
+        return new ServiceException(exceptionEnumHandle, msg);
     }
 }

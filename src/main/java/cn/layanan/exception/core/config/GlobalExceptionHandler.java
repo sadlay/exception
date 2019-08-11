@@ -1,6 +1,6 @@
 package cn.layanan.exception.core.config;
 
-import cn.layanan.exception.core.enums.ErrorCodeEnum;
+import cn.layanan.exception.core.enums.SecurityErrorEnum;
 import cn.layanan.exception.core.exception.RequestException;
 import cn.layanan.exception.core.exception.SecurityException;
 import cn.layanan.exception.core.exception.ServiceException;
@@ -47,7 +47,7 @@ public class GlobalExceptionHandler {
         Set<ConstraintViolation<?>> constraintViolations = e.getConstraintViolations();
         StringBuffer errorMsg = new StringBuffer();
         constraintViolations.stream().forEach(x -> errorMsg.append(x.getInvalidValue()).append(x.getMessage()).append(";"));
-        return Result.error(ErrorCodeEnum.PARAM_ERROR, errorMsg.toString());
+        return Result.error(SecurityErrorEnum.PARAM_ERROR, errorMsg.toString());
     }
 
 
@@ -65,7 +65,7 @@ public class GlobalExceptionHandler {
         List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
         StringBuffer errorMsg = new StringBuffer();
         fieldErrors.stream().forEach(x -> errorMsg.append(x.getField()).append(x.getDefaultMessage()).append(";"));
-        return Result.error(ErrorCodeEnum.PARAM_ERROR, errorMsg.toString());
+        return Result.error(SecurityErrorEnum.PARAM_ERROR, errorMsg.toString());
     }
 
     /**

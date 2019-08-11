@@ -1,6 +1,6 @@
 package cn.layanan.exception.core.exception;
 
-import cn.layanan.exception.core.enums.EnumHandle;
+import cn.layanan.exception.core.enums.ExceptionEnumHandle;
 
 /**
  * 抽象服务异常基类（定义了基本属性及方法）
@@ -8,7 +8,7 @@ import cn.layanan.exception.core.enums.EnumHandle;
  * @Author liyanan
  * @Date 2019/7/31 15:00
  */
-abstract class AbstractException extends RuntimeException implements EnumHandle {
+abstract class AbstractException extends RuntimeException implements ExceptionEnumHandle {
     protected Integer code;
     protected String errorMessage;
 
@@ -18,15 +18,15 @@ abstract class AbstractException extends RuntimeException implements EnumHandle 
         this.errorMessage = errorMessage;
     }
 
-    public AbstractException(EnumHandle enumHandle) {
-        super(enumHandle.getMessage());
-        this.code = enumHandle.getCode();
-        this.errorMessage = enumHandle.getMessage();
+    public AbstractException(ExceptionEnumHandle exceptionEnumHandle) {
+        super(exceptionEnumHandle.getMessage());
+        this.code = exceptionEnumHandle.getCode();
+        this.errorMessage = exceptionEnumHandle.getMessage();
     }
 
-    public AbstractException(EnumHandle enumHandle, String extraMessage) {
+    public AbstractException(ExceptionEnumHandle exceptionEnumHandle, String extraMessage) {
         super(extraMessage);
-        this.code = enumHandle.getCode();
+        this.code = exceptionEnumHandle.getCode();
         this.errorMessage = extraMessage;
     }
 

@@ -1,6 +1,6 @@
 package cn.layanan.exception.core.exception;
 
-import cn.layanan.exception.core.enums.EnumHandle;
+import cn.layanan.exception.core.enums.ExceptionEnumHandle;
 
 /**
  * 安全异常（通常为鉴权和认证错误时候抛出）
@@ -10,11 +10,11 @@ import cn.layanan.exception.core.enums.EnumHandle;
  */
 public class SecurityException extends AbstractException {
 
-    public SecurityException(EnumHandle enumHandle) {
-        super(enumHandle);
+    public SecurityException(ExceptionEnumHandle exceptionEnumHandle) {
+        super(exceptionEnumHandle);
     }
-    public SecurityException(EnumHandle enumHandle, String extraMessage) {
-        super(enumHandle, extraMessage);
+    public SecurityException(ExceptionEnumHandle exceptionEnumHandle, String extraMessage) {
+        super(exceptionEnumHandle, extraMessage);
     }
 
     public SecurityException(Integer code, String errorMessage) {

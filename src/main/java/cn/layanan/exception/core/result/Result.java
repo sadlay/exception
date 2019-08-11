@@ -1,6 +1,6 @@
 package cn.layanan.exception.core.result;
 
-import cn.layanan.exception.core.enums.EnumHandle;
+import cn.layanan.exception.core.enums.ExceptionEnumHandle;
 
 /**
  * 返回结果封装
@@ -72,11 +72,11 @@ public class Result {
         return new ErrorResult(message, object);
     }
 
-    public static Result error(EnumHandle enumHandle) {
-        return new ErrorResult(enumHandle.getCode(), enumHandle.getMessage());
+    public static Result error(ExceptionEnumHandle exceptionEnumHandle) {
+        return new ErrorResult(exceptionEnumHandle.getCode(), exceptionEnumHandle.getMessage());
     }
-    public static Result error(EnumHandle enumHandle,String extraMsg) {
-        return new ErrorResult(enumHandle.getCode(), extraMsg);
+    public static Result error(ExceptionEnumHandle exceptionEnumHandle, String extraMsg) {
+        return new ErrorResult(exceptionEnumHandle.getCode(), extraMsg);
     }
 
 }

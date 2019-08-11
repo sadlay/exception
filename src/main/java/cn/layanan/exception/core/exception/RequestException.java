@@ -1,6 +1,6 @@
 package cn.layanan.exception.core.exception;
 
-import cn.layanan.exception.core.enums.EnumHandle;
+import cn.layanan.exception.core.enums.ExceptionEnumHandle;
 
 /**
  * 请求异常（通常为请求参数验证错误等时候抛出）
@@ -10,12 +10,12 @@ import cn.layanan.exception.core.enums.EnumHandle;
  */
 public class RequestException extends AbstractException {
 
-    public RequestException(EnumHandle enumHandle) {
-        super(enumHandle);
+    public RequestException(ExceptionEnumHandle exceptionEnumHandle) {
+        super(exceptionEnumHandle);
     }
 
-    public RequestException(EnumHandle enumHandle, String extraMessage) {
-        super(enumHandle, extraMessage);
+    public RequestException(ExceptionEnumHandle exceptionEnumHandle, String extraMessage) {
+        super(exceptionEnumHandle, extraMessage);
     }
 
     public RequestException(Integer code, String errorMessage) {
