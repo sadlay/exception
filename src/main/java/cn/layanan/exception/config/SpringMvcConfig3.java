@@ -1,5 +1,6 @@
-package cn.layanan.exception.core.config;
+package cn.layanan.exception.config;
 
+import cn.layanan.exception.core.mvc.converter.RequestDataTypeMethodProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -15,7 +16,7 @@ import java.util.List;
  * @Date: Created in 11:24 2019/8/7
  * @Modified By:IntelliJ IDEA
  */
-//@Configuration
+@Configuration
 public class SpringMvcConfig3 implements WebMvcConfigurer {
 
     @Autowired
@@ -27,4 +28,6 @@ public class SpringMvcConfig3 implements WebMvcConfigurer {
         converters.add(requestDataMessageConvert);
         resolvers.add(new RequestDataTypeMethodProcessor(converters));
     }
+
+
 }

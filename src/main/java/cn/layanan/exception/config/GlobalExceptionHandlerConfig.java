@@ -1,4 +1,4 @@
-package cn.layanan.exception.core.config;
+package cn.layanan.exception.config;
 
 import cn.layanan.exception.core.enums.SecurityErrorEnum;
 import cn.layanan.exception.core.exception.RequestException;
@@ -29,8 +29,8 @@ import java.util.Set;
  */
 @ControllerAdvice
 @Order(-1)
-public class GlobalExceptionHandler {
-    private static Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+public class GlobalExceptionHandlerConfig {
+    private static Logger log = LoggerFactory.getLogger(GlobalExceptionHandlerConfig.class);
 
     /**
      * 方法参数校验异常

@@ -1,5 +1,7 @@
-package cn.layanan.exception.core.config;
+package cn.layanan.exception.core.mvc.filter;
 
+import cn.layanan.exception.core.enums.ServiceErrorEnum;
+import cn.layanan.exception.core.exception.Exceptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,6 +25,7 @@ public class BodyReaderFilter extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
         log.info("包装bodyFilter");
+        //throw Exceptions.service(ServiceErrorEnum.EMAIL_ERROR);
         BodyReaderHttpServletRequestWrapper bodyReaderHttpServletRequestWrapper = new BodyReaderHttpServletRequestWrapper(request);
         chain.doFilter(bodyReaderHttpServletRequestWrapper, response);
     }

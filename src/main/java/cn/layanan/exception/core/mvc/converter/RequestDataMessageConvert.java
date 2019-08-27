@@ -1,5 +1,6 @@
-package cn.layanan.exception.core.config;
+package cn.layanan.exception.core.mvc.converter;
 
+import cn.layanan.exception.core.mvc.RequestData;
 import cn.layanan.exception.core.util.HttpKit;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

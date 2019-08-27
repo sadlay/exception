@@ -1,4 +1,4 @@
-package cn.layanan.exception.core.config;
+package cn.layanan.exception.config;
 
 import cn.layanan.exception.core.bind.JwtTokenArgumentResolver;
 import org.springframework.context.annotation.Bean;

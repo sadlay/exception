@@ -1,5 +1,6 @@
-package cn.layanan.exception.core.config;
+package cn.layanan.exception.config;
 
+import cn.layanan.exception.core.mvc.filter.BodyReaderFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +16,8 @@ import java.util.List;
  * @Date 2019/8/9 11:01
  */
 @Configuration
-public class DefaultLogConfig {
+public class FilterConfig {
+
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();

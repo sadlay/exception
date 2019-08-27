@@ -1,4 +1,4 @@
-package cn.layanan.exception.core.config;
+package cn.layanan.exception.core.mvc.filter;
 
 import org.springframework.util.StreamUtils;
 

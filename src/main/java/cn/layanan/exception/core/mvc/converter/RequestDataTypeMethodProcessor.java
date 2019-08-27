@@ -1,5 +1,6 @@
-package cn.layanan.exception.core.config;
+package cn.layanan.exception.core.mvc.converter;
 
+import cn.layanan.exception.core.mvc.RequestData;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;

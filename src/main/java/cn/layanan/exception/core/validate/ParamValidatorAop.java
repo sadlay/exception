@@ -22,6 +22,7 @@ public class ParamValidatorAop {
     }
 
     @Pointcut("@annotation(cn.layanan.exception.core.validate.ParamValidator)")
+    //@Pointcut("execution(* cn.layanan.exception.core.validate.*.*(..))")
     private void cutService() {
     }
 

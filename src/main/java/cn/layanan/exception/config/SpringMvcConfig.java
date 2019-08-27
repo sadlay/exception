@@ -1,7 +1,8 @@
-package cn.layanan.exception.core.config;
+package cn.layanan.exception.config;
 
 import cn.layanan.exception.core.bind.JwtTokenArgumentResolver;
 import cn.layanan.exception.core.bind.PropertyNamingStrategyArgumentResolver;
+import cn.layanan.exception.core.mvc.converter.RequestDataTypeMethodProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;

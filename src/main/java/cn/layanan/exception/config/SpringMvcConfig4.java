@@ -1,6 +1,7 @@
-package cn.layanan.exception.core.config;
+package cn.layanan.exception.config;
 
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import cn.layanan.exception.core.enums.ServiceErrorEnum;
+import cn.layanan.exception.core.exception.Exceptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -11,7 +12,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 /**
  * @Description:
@@ -19,7 +19,7 @@ import java.util.List;
  * @Date: Created in 11:24 2019/8/7
  * @Modified By:IntelliJ IDEA
  */
-//@Configuration
+@Configuration
 public class SpringMvcConfig4 implements WebMvcConfigurer {
     @Autowired
     private HttpMessageConverter fastJsonHttpMessageConverters;
@@ -31,7 +31,8 @@ public class SpringMvcConfig4 implements WebMvcConfigurer {
             @Override
             public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
                 System.out.println("interceptor");
-                return true;
+                throw Exceptions.security(ServiceErrorEnum.SIGN_ERROR);
+               /* return true;*/
             }
 
             @Override

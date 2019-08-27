@@ -1,4 +1,4 @@
-package cn.layanan.exception.core.config;
+package cn.layanan.exception.core.mvc;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
