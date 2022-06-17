@@ -16,7 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<fastjson>1.2.44</fastjson>
+		<fastjson>1.2.83</fastjson>
 		<jwt.version>0.9.0</jwt.version>
 	</properties>
 
